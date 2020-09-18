@@ -1,0 +1,57 @@
+<!-- templates/edit.html -->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Edit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <div class="edit-nav-bar">EDIT MODE</div>
+        <fieldset>
+            <legend>Edit name:</legend>
+            <form id="edit" action="/list/edit/{{user.id}}" method="POST">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname_edit" name="fname" value="{{user.fname}}" required ><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname_edit" name="lname" value="{{user.lname}}" required><br><br>
+            <label for="nickname">Nickname:</label><br>
+            <input type="text" id="nickname_edit" name="nickname" value="{{user.nickname}}" required><br>
+        </fieldset>
+        <fieldset><br>
+            <legend>Edit Gender:</legend>
+            <select name="gender" id="gender_edit">
+                {% if user.gender == "male" %}
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                {% elif user.gender == "female" %}
+                    <option value="male">Male</option>
+                    <option value="female" selected>Female</option>
+                    <option value="other">Other</option>
+                {% elif user.gender == "other" %}
+                    <option value="male">Male</option>
+                    <option value="female" >Female</option>
+                    <option value="other" selected>Other</option>
+                {% endif %}
+            </select><br><br>
+        </fieldset><br>
+        <input input id="submit_button" type="submit" value="Apply">
+        </form>
+        <a href="/admin" target="_top">
+            <input input id="Back" type="button" value="Back"></input>
+        </a>
+        <br><br>
+    <hr>
+    
+    <br> 
+        <iframe class="iframe" name="list_iframe"
+                src="/list"
+                scrolling="yes"
+                frameborder="0"
+                >
+        </iframe>       
+    </body>
+</html>

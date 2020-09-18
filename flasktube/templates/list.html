@@ -1,0 +1,44 @@
+<!-- templates/list.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+
+        <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Nickname</th>
+            <th>Gender</th>
+        </tr>
+        
+            {% for user in users %}
+            <tr>
+                
+                <td><form action="/list/del/{{user.id}}" method="POST">
+                    <input type="submit" name="DELETE" class="btn" value='Delete'></input>
+                </form></td>
+                <td><form action="/list/edit/{{user.id}}" method="POST">
+                    <a href="/list/edit/{{user.id}}" target="_top">
+                    <button type="button" name="EDIT" class="btn" value='Edit'>Edit</button>
+                    </a>
+                </form></td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.fname }}</td>
+                <td>{{ user.lname }}</td>
+                <td>{{ user.nickname }}</td>
+                <td>{{ user.gender }}</td>
+            </tr>
+            {% endfor %}
+        
+        </table>
+
+    </body>
+</html>

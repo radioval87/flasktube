@@ -1,0 +1,26 @@
+<!-- templates/followed.html -->
+
+{% extends 'profile.html' %}
+
+{% block content %}
+
+    {% for followed_user in followed_users %}
+    <div id='post'>
+        <div class = 'Post-text'>
+            <a href="{{ url_for('profile', nickname = followed_user.nickname) }}">{{followed_user.nickname}}</a><br>
+            <span class = 'aux_text'>{{followed_user.fname}}&nbsp;{{followed_user.lname}}</span>
+        </div>
+        <br>
+        <div id = 'posts_ui{{followed_user.id}}'>
+            {% if current_user.nickname == profile.nickname %}        
+            <form id="delete{{followed_user.id}}" action="/del_followed/{{followed_user.id}}" method="post">
+                <div class = 'posts_ui_button_right'>
+                    <a href="#" id='del_btn' class = 'posts_ui_text' onclick='submit("delete{{followed_user.id}}"); return false;'><span class ='ui_text'>Unfollow</span></a>
+                </div>
+            </form>
+            {% endif %}
+        </div>       
+    </div>
+    {% endfor %}
+
+{% endblock %}

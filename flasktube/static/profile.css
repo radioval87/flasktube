@@ -1,0 +1,476 @@
+/* -----------------------------------HEAD----------------------------------------------------------------------- */
+#head 
+{
+    position: absolute;
+    height: 100px;
+    left: 0%;
+    right: 0%;
+    top: 0px;
+    background: linear-gradient(180deg, #00F1E5 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;
+}
+
+.text-inside-head
+{
+    position: absolute;
+    width: inherit;
+    height: 25px;
+    right: 20px;
+    top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 37px;
+    display: flex;
+    color: #000000;
+    text-align: right;   
+}
+
+.thin-text-inside-head
+{
+    position: absolute;
+    width: inherit;
+    height: 15px;
+    right: 20px;
+    top: 65px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 10;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    text-decoration-line: underline;
+    
+    color: #000000;    
+}
+
+/* -----------------------------------PERSONAL----------------------------------------------------------------------- */
+
+#personal
+{
+    position: absolute;
+    width: 1000px;
+    height: 250px;
+    left: calc(50% - 1000px/2);
+    top: 100px; 
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+#ava
+{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 20px;
+    top: calc(50% - 180px/2);
+    border-radius: 90px;
+    background: #C4C4C4;
+    object-fit: cover
+}
+
+#ava:hover 
+{
+    filter: grayscale(100%);
+}
+
+#profile_ava
+{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 20px;
+    top: calc(50% - 180px/2);
+    border-radius: 90px;
+    background: #C4C4C4;
+    object-fit: cover
+}
+
+#who_ava
+{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 90px;
+    background: #C4C4C4;
+    object-fit: cover;
+    float: left;
+}
+
+.who_nickname
+{
+    float: left;
+    position: relative;
+    top: 30px;
+    left: 10px;
+    text-align: center;
+    width: fit-content;
+}
+
+.who_block
+{
+    display: block;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+    width: 1000px;
+    height: 100px;
+    left: calc(50% - 1000px/2);
+    top: 382px;
+    word-wrap: break-word;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+input[type="file"] 
+{
+    display: none;
+}
+
+#Nickname
+{
+position: absolute;
+width: 113px;
+height: 29px;
+left: 230px;
+top: 35px;
+
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 29px;
+
+color: #000000;
+}
+
+#FnameLname
+{
+position: absolute;
+width: 127px;
+height: 23px;
+left: 230px;
+top: 65px;
+
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+
+color: rgba(0, 0, 0, 0.6);
+}
+
+#Info
+{
+position: absolute;
+width: 750px;
+height: 120px;
+left: 230px;
+top: 95px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+}
+
+#follow-bttn
+{
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    left: 83.5%;
+    top: 35px;
+    align-items: center;
+    background: #00F1E5;
+    box-sizing: border-box;    
+    border-radius: 25px;  
+}
+
+#follow-bttn:hover 
+{
+    filter: grayscale(100%);
+}
+
+.follow
+{   
+    position: relative;
+    top: 5px;
+    left: 28px;
+    text-align: center;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;    
+    color: #323fb2;
+}
+
+/* -----------------------------------POSTS----------------------------------------------------------------------- */
+
+
+#text_area
+{
+  width: 96.9%;
+  height: 32px;
+  overflow: hidden;
+  padding: 5px;
+  border: 1px solid #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #000000;
+  resize: none;
+}
+
+#text_area_comment
+{
+    width: 96.9%;
+    height: 32px;
+    overflow: hidden;
+    padding: 5px;
+    border: 1px solid #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: #000000;
+    resize: none;  
+}
+
+
+#text_area_div
+{
+  width: 372px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+}
+
+
+
+#post
+{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+    width: 1000px;
+    min-height: 10px;
+    left: calc(50% - 1000px/2);
+    top: 380px;
+    word-wrap: break-word;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+#post > .Post-text
+{
+    position: relative;
+    left: 1%;
+    right: 1%;
+    top: 1%;
+    width: 960px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+    /* identical to box height */
+    color: #000000;
+   
+    flex-grow: 1;
+    height: 100%;
+    
+    text-align: left;
+        
+}
+
+.comment
+{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+    width: 940px;
+    min-height: 10px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    left: 1%;
+    right: 1%;
+    top: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 37px;
+    /* identical to box height */
+    color: #000000;
+    flex-grow: 1;
+    text-align: left;
+        
+}
+
+.new_comment
+
+{
+    position: relative;
+    left: 1%;    
+}
+
+.aux_text
+{
+    position: relative;
+    left: 0;
+    right: 1%;
+    top: 1%;
+    width: 960px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 37px;
+    /* identical to box height */
+    color: lightsteelblue;
+   
+    flex-grow: 1;
+    height: 100%;
+    
+    text-align: left;  
+}
+
+/* -----UI----- */
+
+div[id^='posts_ui']
+{   
+    position: relative;
+    bottom: 0%;
+    left: 5px;
+    height: fit-content;
+    width: 940px;
+    padding: 5px;
+    float: left;
+}
+
+.posts_ui_button_left
+{
+    position: relative;
+    width: fit-content;
+    left: 0px;
+    float: left;
+}
+
+.posts_ui_button_right
+{
+    position: relative;
+    width: fit-content;
+    float: right;
+}
+
+.posts_ui_button_center
+{
+    position: relative;
+    width: fit-content;
+    left: 20%;
+    float: left;
+}
+
+form[id^='add_comment']
+{   
+    height: fit-content;
+    width: 30px;
+}
+
+.ui_text
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    /* identical to box height */
+    color: rgb(7, 35, 71);    
+    text-align: left;     
+}
+
+#add_comment
+{    
+    position: relative;
+    bottom: 0%;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;    
+}
+
+/* ---------------------OTHER------------------------------------------------ */
+.a_ava
+{
+    width: fit-content;
+    float: left;
+}
+
+a:hover
+{
+    cursor: pointer    
+}
+
+.clickable
+{
+cursor: pointer
+}
+
+#nav
+{
+position: absolute;
+width: 1000px;
+height: 40px;
+left: calc(50% - 1000px/2);
+top: 350px;
+
+justify-content: space-evenly;
+align-content: flex-start;
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.2);
+box-sizing: border-box;
+}
+
+.nav_div
+{
+    display: block;
+    padding: 10px;
+    position: relative;
+    width: 25%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+}
+
+.small_text
+{
+
+    font-size: 12px;
+
+}
+
+#login
+{
+    padding: 20px;
+    position: relative;
+    width: 1000px;
+    min-height: 10px;
+    left: calc(50% - 1000px/2);
+    top: 92px;
+    word-wrap: break-word;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}

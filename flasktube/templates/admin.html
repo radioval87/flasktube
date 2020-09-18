@@ -1,0 +1,53 @@
+<!-- templates/admin.html -->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Administration</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+
+        <div class="nav-bar"></div>
+        <fieldset>
+            <legend>Your name</legend>
+            <form id="admin_add" action="/add" method="post">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="" required ><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="" required><br><br>
+            <label for="nickname">Nickname:</label><br>
+            <input type="text" id="nickname" name="nickname" value="" required><br>
+        </fieldset>
+        <fieldset>
+            <legend>Gender:</legend>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">Other</label><br>
+        </fieldset>
+        <fieldset>
+            <legend>Login info:</legend>
+            <label for="email">Your E-Mail:</label><br>
+            <input type="email" id="email" name="email" value="" required ><br><br>
+            <label for="password">Enter Password:</label><br>
+            <input type="text" id="password" name="password" value="" required><br><br>
+        </fieldset>
+        <br>
+        <input input id="submit_button" type="submit" value="Submit"><br><br>
+    </form>
+    <hr>
+    
+    <br> 
+        <iframe class="iframe" name="list_iframe"
+                src="/list"
+                scrolling="yes"
+                frameborder="0"
+                >
+        </iframe>       
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!-- templates/who_liked.html -->
+
+{% extends 'profile.html' %}
+{% block title %}
+<title>Liked:</title>
+{% endblock %}
+{% block personal %}
+{% endblock %}
+
+{% block content %}
+    <div id='nav'>
+        <div id = "text" class = 'nav_div'><span class ='ui_text'>People who liked this post:</span></div>
+        <div id = "back" class = 'nav_div'><a href="javascript:history.back();"><span class ='ui_text'>Back</span></a></div> 
+    </div>
+    {% for like in likes %}
+    <div class='who_block'>
+        <div class = 'a_ava'>
+        <a href="{{ url_for('profile', nickname = like) }}" class = 'a_ava'>
+        <img id = 'who_ava' src={{ avas[like] }} alt="avatar">
+        </div>
+        <div class = 'who_nickname'>{{like}}</div>
+        </a>      
+    </div>
+    {% endfor %}
+
+{% endblock %}

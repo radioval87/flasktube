@@ -1,0 +1,129 @@
+article
+{
+    border: 1px solid, tomato;
+}
+
+.small_text
+{
+    font-size: 12px;
+}
+
+#logged-in-as
+{
+    position: relative;
+    text-align: right;
+    top: 10px;
+    padding: 15px;
+    font-size: 20px;
+    color: whitesmoke;
+    font-family:'Franklin Gothic Medium'
+}
+
+#log-out
+{
+    position: relative;
+    display: block;
+    text-align: right;
+    bottom: 25px;
+    padding: 15px;
+    font-size: 15px;
+    color: white;
+    font-family:'Franklin Gothic Medium'
+}
+
+#log-in
+{
+    position: relative;
+    display: block;
+    text-align: right;
+    top: 10px;
+    padding: 15px;
+    font-size: 20px;
+    color: whitesmoke;
+    font-family:'Franklin Gothic Medium'
+}
+
+.nav-bar 
+{
+    position: relative;
+    top: 0px;
+    background: rgb(131,58,180);
+    background: linear-gradient(0deg, rgba(0,241,208,0) 4%, rgba(0,241,208,1) 23%, rgba(42,0,241,1) 76%);
+    height: 100px;
+    margin-bottom: 15px;
+    margin-top:20px;
+}
+
+.edit-nav-bar 
+{
+    background: linear-gradient(180deg, rgb(255, 0, 0), rgb(239, 193, 193));
+    height: 100px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size:80px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 
+}
+
+.iframe 
+{
+    position: relative;
+    bottom: 0;
+    left: -5px;
+    border: 0;
+    height: 50vh;
+    width: 100vh;
+}
+
+fieldset
+{
+    width: 100vh;
+    font-size: 20px;
+}
+
+table 
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td  
+{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th
+{   
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background: white
+
+}
+
+tr:nth-child(even) 
+{
+    background-color: #dddddd;
+}
+
+  #screen {
+    position: relative;
+    left: 291px;
+    top: -730px;
+    height: 78px;
+    width: 331px;
+    text-align: right;
+    font-size: 50px;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+area :hover {
+
+    fill: #000000;
+
+}

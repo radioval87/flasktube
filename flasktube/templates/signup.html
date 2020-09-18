@@ -1,0 +1,56 @@
+<!-- templates/signup.html -->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Sign Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/profile.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+
+    <body>
+        <div id="head"></div>
+        <div id = "login">
+        <fieldset>
+            <legend>Your name:</legend>
+            <form id="signUp" action="{{ url_for('signup') }}" method="post">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="" required ><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="" required><br><br>
+            <label for="nickname">Nickname:</label><br>
+            <input type="text" id="nickname" name="nickname" value="" required pattern="^[a-zA-Z0-9_]+$">&nbsp;<span class='small_text'>(English, numbers and underlines only)</span>
+            
+            <br>            
+        </fieldset>
+        <br> 
+        <fieldset>
+            <legend>Gender:</legend>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">Other</label><br>
+        </fieldset>
+        <br> 
+        <fieldset>
+            <legend>Login info:</legend>
+            <label for="email">Your E-Mail:</label><br>
+            <input type="email" id="email" name="email" value="" required ><br><br>
+            <label for="password">Enter Password:</label><br>
+            <input type="text" id="password" name="password" value="" required><br><br>
+        </fieldset>
+        <br>
+        &nbsp;<input input id="submit_button" type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{{ url_for('login') }}" target="_top">
+            <input input id="Back" type="button" value="Back"></input>
+        </a>
+    </form>
+    </div>     
+    </body>
+</html>

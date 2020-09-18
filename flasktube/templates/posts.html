@@ -1,0 +1,85 @@
+<!-- templates/posts.html -->
+
+{% extends 'profile.html' %}
+
+{% block content %}
+
+    {% if posts %}
+        {% if current_user.nickname == profile.nickname %}
+            <div id='post'>
+                <div class = 'Post-text'>
+                    <form id='add_post' action='' method='post'>
+                        <textarea id='text_area' name='new_post' rows='2' onkeyup='textarea_resize(event, 33, 2);'></textarea>
+                        <div id='text_area_div'></div>
+                        <input input id='submit_button' type='submit' value='Post'>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+
+        {% for post in posts %}
+        <div id='post'>
+            <div class = 'Post-text'>
+                <span class = 'aux_text'>{{post.post_date}}&nbsp;<a href="{{ url_for('profile', nickname = profile.nickname) }}">{{profile.nickname}}</a>&nbsp;wrote:</span>
+                <br>
+                {{post.post_text}}
+            </div>
+            <br>             
+            <form id='add_comment{{post.post_id}}' action='{{ url_for("add_comment", post_id = post.post_id) }}' method='post'> 
+                <div id = 'posts_ui{{post.post_id}}'>
+                    <div class="posts_ui_button_left">
+                        {% if auth %}     
+                        <a href="#" id = 'comment_btn' class = 'posts_ui_text' onclick='comment_form("posts_ui{{post.post_id}}"); return false;'><span class ='ui_text'>Comment</span></a>                           
+                        {% else %}
+                        <a href="#" id = 'comment_btn' class = 'posts_ui_text' onclick='submit("add_comment{{post.post_id}}");'><span class ='ui_text'>Comment</span></a>
+                        {% endif %}
+                    </div>
+                    
+            </form>
+            
+            {% if current_user.nickname not in likes[post.post_id] %}
+            <form id='like{{post.post_id}}' action='{{ url_for("add_like", post_id = post.post_id) }}' method='post'>
+                    <div class="posts_ui_button_center">   
+                        <a href="#" id = 'like_btn' class = 'posts_ui_text' onclick='submit("like{{post.post_id}}"); return false;'><span class ='ui_text'>Like</span></a>&nbsp;
+                        <a href="{{ url_for('who_liked', post_id = post.post_id) }}"><span class ='ui_text'>({{nol[post.post_id][0]}})</span></a>                         
+                    </div>
+            </form>
+            {% else %}
+            <form id='unlike{{post.post_id}}' action='{{ url_for("delete_like", post_id = post.post_id) }}' method='post'>
+                <div class="posts_ui_button_center">
+                    <a href="#" id = 'unlike_btn' class = 'posts_ui_text' onclick='submit("unlike{{post.post_id}}"); return false;'><span class ='ui_text'>Like</span></a>&nbsp;
+                    <a href="{{ url_for('who_liked', post_id = post.post_id) }}"><span class ='ui_text'>({{nol[post.post_id][0]}})</span></a>
+                </div>
+            </form>
+            {% endif %}
+                    {% if current_user.nickname == profile.nickname %}
+                        <form id="delete" action='{{ url_for("delete_post", post_id = post.post_id) }}' method="post">
+                        <div class="posts_ui_button_right">
+                                
+                            <a href="#" id='del_btn' class = 'posts_ui_text' onclick='submit("delete"); return false;'><span class ='ui_text'>Delete</span></a>
+                            
+                        </div>
+                        </form>
+                    {% endif %}
+                </div>
+            <br>
+            {% for comment in comments[post.post_id] %}
+                <div class = 'comment'>
+                    <span class = 'aux_text'>{{comment.comment_date}}&nbsp;<a href="{{ url_for('profile', nickname = comment.author_nickname) }}">{{comment.author_nickname}}</a>&nbsp;commented:</span>       
+                    {{comment.comment_text}}   
+                </div>
+            {% endfor %}          
+        </div>   
+        {% endfor %}
+
+    {% else %}
+        {% if current_user.nickname == profile.nickname %}
+            <div id='post'>
+                <div class = 'Post-text'>
+                    <p id='start'> Nice day to <span onclick='change_to_form("start")'><u class ='clickable' style="color:blue;">start posting</u></span><p>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
