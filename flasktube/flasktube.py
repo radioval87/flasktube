@@ -7,8 +7,8 @@ from flask import (Flask, flash, redirect, render_template, request,
                    session, url_for)
 from werkzeug.utils import secure_filename
 
-import code.database.database as db
-from code.models.models import Comment, LoginForm, Post, User
+import database.database as db
+from models.models import Comment, LoginForm, Post, User
 
 UPLOAD_DIR = './static/uploaded/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])

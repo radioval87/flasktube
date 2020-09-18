@@ -69,7 +69,7 @@ def init_db():
                     FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE   CASCADE);
         '''
 
-        admin_password = app.config['PASSWORD']
+        admin_password = 'admin'
         admin = User('1', 'admin', 'admin', 'admin', 'admin', '', 'admin@admin.com')
         admin.set_password(admin_password)
         c = conn.cursor()
