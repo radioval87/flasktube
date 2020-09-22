@@ -15,7 +15,7 @@
     {% for like in likes %}
     <div class='who_block'>
         <div class = 'a_ava'>
-        <a href="{{ url_for('profile', nickname = like) }}" class = 'a_ava'>
+        <a href="{{ url_for('routes_bp.profile', nickname = like) }}" class = 'a_ava'>
         <img id = 'who_ava' src={{ avas[like] }} alt="avatar">
         </div>
         <div class = 'who_nickname'>{{like}}</div>

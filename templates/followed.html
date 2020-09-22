@@ -7,7 +7,7 @@
     {% for followed_user in followed_users %}
     <div id='post'>
         <div class = 'Post-text'>
-            <a href="{{ url_for('profile', nickname = followed_user.nickname) }}">{{followed_user.nickname}}</a><br>
+            <a href="{{ url_for('routes_bp.profile', nickname = followed_user.nickname) }}">{{followed_user.nickname}}</a><br>
             <span class = 'aux_text'>{{followed_user.fname}}&nbsp;{{followed_user.lname}}</span>
         </div>
         <br>

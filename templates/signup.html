@@ -17,7 +17,7 @@
         <div id = "login">
         <fieldset>
             <legend>Your name:</legend>
-            <form id="signUp" action="{{ url_for('signup') }}" method="post">
+            <form id="signUp" action="{{ url_for('routes_bp.signup') }}" method="post">
             <label for="fname">First name:</label><br>
             <input type="text" id="fname" name="fname" value="" required ><br><br>
             <label for="lname">Last name:</label><br>
@@ -47,7 +47,7 @@
         </fieldset>
         <br>
         &nbsp;<input input id="submit_button" type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="{{ url_for('login') }}" target="_top">
+        <a href="{{ url_for('routes_bp.login') }}" target="_top">
             <input input id="Back" type="button" value="Back"></input>
         </a>
     </form>

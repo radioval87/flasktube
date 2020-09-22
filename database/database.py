@@ -5,7 +5,6 @@ from models.models import Comment, Post, User
 
 DB_PATH = './database/data.db'
 
-
 def init_db():
     if os.path.isfile(DB_PATH) and os.path.getsize(DB_PATH) > 100:
         with open(DB_PATH, 'r', encoding="ISO-8859-1") as f:
@@ -69,9 +68,11 @@ def init_db():
                     FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE   CASCADE);
         '''
 
+        admin_username = 'admin@admin.com'
         admin_password = 'admin'
-        admin = User('1', 'admin', 'admin', 'admin', 'admin', '', 'admin@admin.com')
+        admin = User('1', 'admin', 'admin', 'admin', 'admin', '', '')
         admin.set_password(admin_password)
+        admin.set_email(admin_username)
         c = conn.cursor()
         c.execute(sql_create_users_table)
         c.execute(sql_create_posts_table)

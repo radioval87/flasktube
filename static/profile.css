@@ -54,7 +54,7 @@
     height: 250px;
     left: calc(50% - 1000px/2);
     top: 100px; 
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
     box-sizing: border-box;
 }
 
@@ -205,7 +205,8 @@ color: #000000;
     left: 28px;
     text-align: center;
     
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
+    
     font-size: 30px;    
     color: #323fb2;
 }
@@ -265,8 +266,8 @@ color: #000000;
     left: calc(50% - 1000px/2);
     top: 380px;
     word-wrap: break-word;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: #F5F5F5;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
     box-sizing: border-box;
 }
 
@@ -280,7 +281,7 @@ color: #000000;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 37px;
     /* identical to box height */
     color: #000000;
@@ -300,16 +301,16 @@ color: #000000;
     position: relative;
     width: 940px;
     min-height: 10px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* background: #FFFFFF; */
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
     box-sizing: border-box;
-    left: 1%;
+    left: 5%;
     right: 1%;
     top: 1%;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 37px;
     /* identical to box height */
     color: #000000;
@@ -378,7 +379,7 @@ div[id^='posts_ui']
 {
     position: relative;
     width: fit-content;
-    left: 20%;
+    left: 3%;
     float: left;
 }
 
@@ -395,7 +396,18 @@ form[id^='add_comment']
     font-weight: normal;
     font-size: 15px;
     /* identical to box height */
-    color: rgb(7, 35, 71);    
+    color: dimgrey;    
+    text-align: left;     
+}
+
+.ui_text_active
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    /* identical to box height */
+    color: black;    
     text-align: left;     
 }
 
@@ -413,6 +425,11 @@ form[id^='add_comment']
 {
     width: fit-content;
     float: left;
+}
+
+a
+{
+    color: dimgrey;
 }
 
 a:hover
@@ -436,7 +453,7 @@ top: 350px;
 justify-content: space-evenly;
 align-content: flex-start;
 background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.2);
+/* border: 1px solid rgba(0, 0, 0, 0.2); */
 box-sizing: border-box;
 }
 
@@ -448,10 +465,25 @@ box-sizing: border-box;
     width: 25%;
     height: 40px;
     background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
     box-sizing: border-box;
     float: left;
     text-align: center;
+}
+
+.nav_div_active
+{
+    display: block;
+    padding: 10px;
+    position: relative;
+    width: 25%;
+    height: 40px;
+    background: #F5F5F5;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    text-decoration-color: black;
 }
 
 .small_text

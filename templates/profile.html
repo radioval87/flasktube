@@ -1,0 +1,96 @@
+<!-- templates/profile.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}
+        <title>{{profile.nickname}}</title>
+        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/profile.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <script type="text/javascript" src="/static/profile.js"></script>
+    </head>
+    <body>
+        <header>  
+            <div id="head">
+                {% if auth %}
+                    <span class='text-inside-head'>Logged in as&nbsp;<a href="{{ url_for('routes_bp.profile', nickname = current_user.nickname) }}" target="_top"> {{current_user.nickname}} </a></span>
+                    <span class='thin-text-inside-head'><a href="{{ url_for('routes_bp.logout') }}" target="_top" id='log-out'>Log Out</a></span>
+                {% else %}
+                    <span class='thin-text-inside-head'><a href="{{ url_for('routes_bp.login') }}" target="_top" id='log-in'>Log In</a></span>
+                {% endif %}
+            </div>
+{% block personal %}
+            <div id='personal'>
+                {% if current_user.nickname == profile.nickname %}
+                    <form action="{{ url_for('routes_bp.ava_upload', nickname = current_user.nickname) }}" method='post' enctype='multipart/form-data'>
+                        <label for="file">
+                            {% if ava_set %}
+                                <img id = 'ava' class='clickable' src="/static/uploaded/{{profile.nickname}}/ava_{{profile.nickname}}.jpg" alt="avatar" sizes="180px, 180px">         
+                            {% else %}
+                                <img id = 'ava' class='clickable' src="/static/default_ava.png" alt="no avatar" sizes="180px, 180px">
+                            {% endif %}
+                        </label>
+                        <input id="file" type="file" accept="image/*" name='file' onclick="autosubmit('#file')">
+                    </form>
+                {% else %}
+                    {% if ava_set %}
+                        <img id = 'profile_ava' src="/static/uploaded/{{profile.nickname}}/ava_{{profile.nickname}}.jpg" alt="avatar" sizes="180px, 180px">
+                    {% else %}
+                        <img id = 'ava' src="/static/default_ava.png" alt="no avatar" sizes="180px, 180px">
+                    {% endif %}
+                {% endif %}
+
+                <span id = 'Nickname'>{{profile.nickname}}</span>
+                <span id = 'FnameLname'>{{profile.fname}}&nbsp;{{profile.lname}}</span>
+                {% if auth and current_user.nickname != profile.nickname and profile.id not in followed_ids %}
+                    <div id = 'f-b-hide'>
+                        <div id = 'follow-bttn' class='clickable' onclick='submit("follow"); hide("f-b-hide"); return false;'>
+                            <form id="follow" action="{{ url_for('routes_bp.add_followed', profile_id = profile.id) }}" method="post">
+                                <a href="#"><span class ='follow'>Follow</span></a>
+                            </form>    
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            
+            {% if url_for(request.endpoint, nickname = profile.nickname) == url_for('routes_bp.profile', nickname = profile.nickname) %}
+            <div id='nav'>
+                <div id = "posts" class = 'nav_div_active'><span class ='ui_text_active'>Posts</span></div>
+                <div id = "followed" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_followed', nickname = profile.nickname) }}"><span class ='ui_text'>Follows</span></a></div> 
+                <div id = "followers" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_followers', nickname = profile.nickname) }}"><span class ='ui_text'>Followers</span></a></div>
+                <div id = "news" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_news', nickname = profile.nickname) }}"><span class ='ui_text'>News</span></a></div> 
+            </div>
+            {% elif url_for(request.endpoint, nickname = profile.nickname) == url_for('routes_bp.fetch_followed', nickname = profile.nickname) %}
+            <div id='nav'>
+                <div id = "posts" class = 'nav_div'><a href="{{ url_for('routes_bp.profile', nickname = profile.nickname) }}"><span class ='ui_text'>Posts</span></a></div>
+                <div id = "followed" class = 'nav_div_active'><span class ='ui_text_active'>Follows</span></div> 
+                <div id = "followers" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_followers', nickname = profile.nickname) }}"><span class ='ui_text'>Followers</span></a></div>
+                <div id = "news" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_news', nickname = profile.nickname) }}"><span class ='ui_text'>News</span></a></div> 
+            </div>
+            {% elif url_for(request.endpoint, nickname = profile.nickname) == url_for('routes_bp.fetch_followers', nickname = profile.nickname) %}
+            <div id='nav'>
+                <div id = "posts" class = 'nav_div'><a href="{{ url_for('routes_bp.profile', nickname = profile.nickname) }}"><span class ='ui_text'>Posts</span></a></div>
+                <div id = "followed" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_followed', nickname = profile.nickname) }}"><span class ='ui_text'>Follows</span></a></div>
+                <div id = "followers" class = 'nav_div_active'><span class ='ui_text_active'>Followers</span></div>
+                <div id = "news" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_news', nickname = profile.nickname) }}"><span class ='ui_text'>News</span></a></div> 
+            </div>
+            {% elif url_for(request.endpoint, nickname = profile.nickname) == url_for('routes_bp.fetch_news', nickname = profile.nickname) %}
+            <div id='nav'>
+                <div id = "posts" class = 'nav_div'><a href="{{ url_for('routes_bp.profile', nickname = profile.nickname) }}"><span class ='ui_text'>Posts</span></a></div>
+                <div id = "followed" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_followed', nickname = profile.nickname) }}"><span class ='ui_text'>Follows</span></a></div>
+                <div id = "followers" class = 'nav_div'><a href="{{ url_for('routes_bp.fetch_followers', nickname = profile.nickname) }}"><span class ='ui_text'>Followers</span></a></div>
+                <div id = "news" class = 'nav_div_active'><span class ='ui_text_active'>News</span></div> 
+            </div>
+            {% endif %}
+        </header>
+{% endblock %}    
+        {% block content %}
+    
+        {% endblock %}
+       
+    </body>
+</html>

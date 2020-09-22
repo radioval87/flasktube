@@ -9,12 +9,12 @@
         {% if current_user.nickname != post.author_nickname %}
             <div id='post'>
                 <div class = 'Post-text'>
-                    <span class = 'aux_text'>{{post.post_date}}&nbsp;<a href="{{ url_for('profile', nickname = post.author_nickname) }}">{{post.author_nickname}}</a>&nbsp;wrote:</span>
+                    <span class = 'aux_text'>{{post.post_date}}&nbsp;<a href="{{ url_for('routes_bp.profile', nickname = post.author_nickname) }}">{{post.author_nickname}}</a>&nbsp;wrote:</span>
                     <br>
                     {{post.post_text}}
                 </div>
                 <br>             
-                <form id='add_comment{{post.post_id}}' action='{{ url_for("add_comment", post_id = post.post_id) }}' method='post'> 
+                <form id='add_comment{{post.post_id}}' action='{{ url_for("routes_bp.add_comment", post_id = post.post_id) }}' method='post'> 
                     <div id = 'posts_ui{{post.post_id}}'>
                         <div class="posts_ui_button_left">
                             {% if auth %}     
@@ -27,17 +27,17 @@
                 </form>
                 
                 {% if current_user.nickname not in likes[post.post_id] %}
-                <form id='like{{post.post_id}}' action='{{ url_for("add_like", post_id = post.post_id) }}' method='post'>
+                <form id='like{{post.post_id}}' action='{{ url_for("routes_bp.add_like", post_id = post.post_id) }}' method='post'>
                         <div class="posts_ui_button_center">   
                             <a href="#" id = 'like_btn' class = 'posts_ui_text' onclick='submit("like{{post.post_id}}"); return false;'><span class ='ui_text'>Like</span></a>&nbsp;
-                            <a href="{{ url_for('who_liked', post_id = post.post_id) }}"><span class ='ui_text'>({{nol[post.post_id][0]}})</span></a>                         
+                            <a href="{{ url_for('routes_bp.who_liked', post_id = post.post_id) }}"><span class ='ui_text'>({{nol[post.post_id][0]}})</span></a>                         
                         </div>
                 </form>
                 {% else %}
-                <form id='unlike{{post.post_id}}' action='{{ url_for("delete_like", post_id = post.post_id) }}' method='post'>
+                <form id='unlike{{post.post_id}}' action='{{ url_for("routes_bp.delete_like", post_id = post.post_id) }}' method='post'>
                     <div class="posts_ui_button_center">
                         <a href="#" id = 'unlike_btn' class = 'posts_ui_text' onclick='submit("unlike{{post.post_id}}"); return false;'><span class ='ui_text'>Like</span></a>&nbsp;
-                        <a href="{{ url_for('who_liked', post_id = post.post_id) }}"><span class ='ui_text'>({{nol[post.post_id][0]}})</span></a>
+                        <a href="{{ url_for('routes_bp.who_liked', post_id = post.post_id) }}"><span class ='ui_text'>({{nol[post.post_id][0]}})</span></a>
                     </div>
                 </form>
                 {% endif %}
@@ -51,7 +51,7 @@
         
         <div id='post'>
             <div class = 'Post-text'>
-                <span id='no_news'> Nothing new yet </span> 
+                <p id='no_news'> Nothing new yet </p> 
             </div>
         </div>
     
